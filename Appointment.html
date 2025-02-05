@@ -15,181 +15,257 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 
-
   <title>Appointment</title>
-   <style>
-      .box-container{
-        display:flex;
-        justify-content: center;
-        margin-top: 50px;
-        grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
-        gap: 4rem;
-        }
-        .doctors .box-container .box{
-            background: #fff;
-            padding: 2rem;
-            
-            border-radius: 20px;
-            text-align: center;
-            
-        }
-        .share{
-          display: flex;
-          justify-content: center;
-          margin-top: 1rem;
-          align-items: center;
-        }
-        .share a{
-          height:4rem ;
-          width:4rem;
-          text-decoration: none;
-          border-radius: 40%;
-          font-size: 35px;
-          margin: .3rem;
-          
-        }
-        .share a i{
-          color: #fff;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          width: 100%;
-          border-radius: 40%;
-          background-color: #000;
-          transition: .3s;
-        }
-        .share a i:hover{
-          background-color: #ff0000;
-          }
-          
+  <style>
+    .emergency-btn {
+      text-align: center;
+      padding: 15px 10px;
+      border: none;
+      font-weight: 700;
+      font-size: 15px;
+      background: #ff0000;
+      border-radius: 10px;
+      box-shadow: 3px 3px 0px 0px #E99F4C;
+      color: white; 
+      width: 40%;
+      cursor: pointer;
+      margin-left: 20px; 
+      transition: background-color 0.3s ease;
+    }
 
-          h1 {
-            text-align: center;
-            color: #22a4c4;
-         }
-        .formbold-mb-5 {
-          margin-bottom: 28px;
-           padding: 8px;
-        }
-        .formbold-pt-3 {
-          padding-top: 20px;
-        }
-        .formbold-main-wrapper {
-          display: flex;
-          align-items: center;
-          margin-left:480px;
-          margin-bottom: 170px;
-        }
-      
-        .formbold-form-wrapper {
-           max-width: 570px;
-           width: 100%;
-           background-color: #EDDCD9;
-           padding: 30px;
-           border: 2px solid #264143;
-           box-shadow: 3px 4px 0px 1px #E99F4C;
-           margin-top: 30px;
-         }
-         .formbold-main-wrapper{
-           font-family: "Inter", Arial, Helvetica, sans-serif;
-           font-weight: 600;
-          border:none;
-        }
-         .formbold-form-label {
-           display: block;
-           font-weight: 600;
-          font-size: 16px;
-           color: #07074d;
-          margin-bottom: 10px;
-        }
-         .formbold-form-label-2 {
-          font-weight: 600;
-           font-size: 20px;
-           margin-bottom: 15px;
-        }
-       
-        .formbold-form-input {
-          width:90%;
-           padding: 15px 15px;
-          border-radius: 6px;
-          background: white;
-           font-weight: 500;
-           font-size: 16px;
-          color: black;
-           outline: none;
-           resize: none;
-          border: 2px solid #264143;
-           box-shadow: 3px 4px 0px 1px #E99F4C;
-        }
-        .formbold-form-input:focus {
-          border-color: #6a64f1;
-          color:black;
-        }
-        .formbold-btn {
-           text-align: center;
-           padding: 15px 10px;
-           padding-left:10px;
-           border: none;
-           font-weight: 700;
-           font-size: 15px;
-           background: #176565;
-           border-radius: 10px;
-           box-shadow: 3px 3px 0px 0px #E99F4C;
-           color: black;
-           width: 30%;
-           cursor: pointer;
-           margin-left: 120px;
-        }
-         .formbold-btn:hover {
-             opacity: .9;
-        }
-         .formbold-form-input:focus{
-             transform: translateY(4px);
-           box-shadow: 1px 1px 0px 0px #E99F4C;
-        }
-         .formbold-btn:active {
-           transform: translateY(4px);
-           box-shadow: 1px 1px 0px 0px #E99F4C;
-         }
-         .formbold--mx-3 {
-          margin-left: -12px;
-           margin-right: -12px;
-        }
-         .formbold-px-3 {
-           padding-left: 12px;
-          padding-right: 12px;
-         }
-         .flex {
-          display: flex;
-         }
-         .flex-wrap {
-           flex-wrap: wrap;
-        }
-         .w-full {
-           width: 90%;
-         }
-         @media (min-width: 768px) {
-          .row {
-                flex-direction: row;
-            }
-            .image, .formbold-main-wrapper {
-                flex: 1;
-            }
-        }
-
-
-
-   </style>
+    .emergency-btn:hover {
+      background: #cc0000; 
+    }
+    .emergency-btn:active {
+      transform: translateY(4px);
+      box-shadow: 1px 1px 0px 0px #E99F4C;
+    }
+    body {
+      overflow-x: hidden;
+    }
 
    
+    .hidden {
+      display: none !important;
+    }
+
+    .box-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .box {
+      width: 280px;
+      height: 400px;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .box img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .doctors .box-container .box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .share {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 1rem;
+    }
+
+    .share a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .share a i {
+      color: white;
+      font-size: 20px;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+
+    .share a i:hover {
+      background-color: #ff0000;
+      transform: scale(1.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #22a4c4;
+    }
+
+    .formbold-mb-5 {
+      margin-bottom: 28px;
+      padding: 8px;
+    }
+
+    .formbold-pt-3 {
+      padding-top: 20px;
+    }
+
+    .formbold-main-wrapper {
+      display: flex;
+      align-items: center;
+      margin-left: 480px;
+      margin-bottom: 170px;
+    }
+
+    .formbold-form-wrapper {
+      max-width: 570px;
+      width: 100%;
+      background-color: #EDDCD9;
+      padding: 30px;
+      border: 2px solid #264143;
+      box-shadow: 3px 4px 0px 1px #E99F4C;
+      margin-top: 30px;
+    }
+
+    .formbold-main-wrapper {
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      border: none;
+    }
+
+    .formbold-form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 16px;
+      color: #07074d;
+      margin-bottom: 10px;
+    }
+
+    .formbold-form-label-2 {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .formbold-form-input {
+      width: 90%;
+      padding: 15px 15px;
+      border-radius: 6px;
+      background: white;
+      font-weight: 500;
+      font-size: 16px;
+      color: black;
+      outline: none;
+      resize: none;
+      border: 2px solid #264143;
+      box-shadow: 3px 4px 0px 1px #E99F4C;
+    }
+
+    .formbold-form-input:focus {
+      border-color: #6a64f1;
+      color: black;
+    }
+
+    .formbold-btn {
+      text-align: center;
+      padding: 15px 10px;
+      padding-left: 10px;
+      border: none;
+      font-weight: 700;
+      font-size: 15px;
+      background: #176565;
+      border-radius: 10px;
+      box-shadow: 3px 3px 0px 0px #E99F4C;
+      color: black;
+      width: 30%;
+      cursor: pointer;
+      margin-left: 120px;
+      
+    }
+
+    .formbold-btn:hover {
+      opacity: .9;
+    }
+
+    .formbold-form-input:focus {
+      transform: translateY(4px);
+      box-shadow: 1px 1px 0px 0px #E99F4C;
+    }
+
+    .formbold-btn:active {
+      transform: translateY(4px);
+      box-shadow: 1px 1px 0px 0px #E99F4C;
+    }
+
+    .formbold--mx-3 {
+      margin-left: -12px;
+      margin-right: -12px;
+    }
+
+    .formbold-px-3 {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .w-full {
+      width: 90%;
+    }
+
+    @media (min-width: 768px) {
+      .row {
+        flex-direction: row;
+      }
+
+      .image,
+      .formbold-main-wrapper {
+        flex: 1;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <header class="header" id="#header">
     <nav class="nav nav__desktop">
-      <img src="images/PAWXIELOGO.png" style="height: 130px;width: 150px;" alt="Pet Care logo" class="nav__logo" id="logo">
+      <img src="images/PAWXIELOGO.png" style="height: 130px;width: 150px;" alt="Pet Care logo" class="nav__logo"
+        id="logo">
 
       <ul class="nav__links">
         <li class="nav__item current">
@@ -246,155 +322,131 @@
         </div>
       </nav>
     </div>
-         
-    <section class="book" id="book">
-         
-      <h1 class="heading" style="text-align: center;">Book <span style="text-align: center;">Now</span></h1>
 
+    <section class="book" id="book">
+      <h1 class="heading" style="text-align: center;">Book <span style="text-align: center;">Now</span></h1>
+  
       <div class="row">
         <div class="image">
           <img src="images/book.jpg" alt="">
-      </div>
-
-          <div class="formbold-main-wrapper" style="margin-right: 480px;">
-            <div class="formbold-form-wrapper">
-              <form action="#" method="POST">
-                <div class="formbold-mb-5">
-                  <h2 style="text-align: center;">Book Appointment </h2>
-                  <br>
-                  <label for="name" class="formbold-form-label"> Enter Name </label>
-                  <input type="text" name="name" id="name" placeholder="Enter Your Name" class="formbold-form-input" />
-                </div>
-                <div class="flex flex-wrap formbold--mx-3">
-                  <div class="form-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                   <!-- Date Input -->
-                    <div class="w-full sm:w-half formbold-px-3" style="flex: 1;">
-                      <div class="formbold-mb-5 w-full">
-                        <label for="date" class="formbold-form-label" style="font-weight: bold;">Date</label>
-                        <input type="date" name="date" id="date" class="formbold-form-input" style="width: 200px; color: black;" />
-                      </div>
-                    </div>
-                 
-                   <!-- Time Input -->
+        </div>
+  
+        <div class="formbold-main-wrapper" style="margin-right: 480px;">
+          <div class="formbold-form-wrapper">
+            <form action="#" method="POST">
+              <div class="formbold-mb-5">
+                <h2 style="text-align: center;">Book Appointment </h2>
+                <br>
+                <label for="name" class="formbold-form-label"> Enter Name </label>
+                <input type="text" name="name" id="name" placeholder="Enter Your Name" class="formbold-form-input" />
+              </div>
+              <div class="flex flex-wrap formbold--mx-3">
+                <div class="form-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                  
                   <div class="w-full sm:w-half formbold-px-3" style="flex: 1;">
-                   <div class="formbold-mb-5">
+                    <div class="formbold-mb-5 w-full">
+                      <label for="date" class="formbold-form-label" style="font-weight: bold;">Date</label>
+                      <input type="date" name="date" id="date" class="formbold-form-input"
+                        style="width: 200px; color: black;" />
+                    </div>
+                  </div>
+  
+                  
+                  <div class="w-full sm:w-half formbold-px-3" style="flex: 1;">
+                    <div class="formbold-mb-5">
                       <label for="time" class="formbold-form-label" style="font-weight: bold;">Time</label>
                       <input type="time" name="time" id="time" class="formbold-form-input" style="width: 140px;" />
-                   </div> </div>
-               </div>
-                 
+                    </div>
+                  </div>
+                </div>
+  
                 <div class="w-full sm:w-half formbold-px-3">
                   <div class="formbold-mb-5">
                     <label for="time" class="formbold-form-label"> Location </label>
-                    <input id="time" placeholder="e.g., Remote or Physical Address"  class="formbold-form-input"/>
+                    <input id="time" placeholder="e.g., Remote or Physical Address" class="formbold-form-input" />
                   </div>
-                  <button class="formbold-btn">Submit</button>
-                 
+                  <div style="display: flex; justify-content: center;">
+                    <button id="submit-btn" class="formbold-btn">Submit</button>
+                    <button id="emergency-btn" class="emergency-btn">Emergency Booking</button>
+                  </div>
                 </div>
-              </form> 
-            </div>
+            </form>
           </div>
-        </form>
-
-    </section>
-
-
-
-
-
-
-
-    <section class="doctors" id="doctors">
-           <h1 class="heading" style="text-align: center;">Our <span style="text-align: center;">Doctors</span></h1>
-           <div class="box-container">
-
-            <div class="box "style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
-                <img src="images/doctor1.jpg" alt="" style="height: 270px;width: 270px;border: 2px solid black;">
-                <h3>DOCTOR1</h3>
-                <span>Veterinarian</span>
-                <div class="share">
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
-            </div>
-
-            <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
-                <img src="images/doctor2.jpg" alt="" style="height: 270px;width: 270px; border: 2px solid black;">
-                <h3>DOCTOR2</h3>
-                <span>Veterinarian</span>
-                <div class="share">
-                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                  <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
-            </div>
-                  
-            <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
-                <img src="images/doctor2.jpg" alt="" style="height: 270px;width: 270px;border: 2px solid black;">
-                <h3>DOCTOR3</h3>
-                <span>Veterinarian</span>
-                <div class="share">
-                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                  <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
-            </div>
-
-            <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
-                <img src="images/doctor2.jpg" alt="" style="height: 270px;width: 270px;border: 2px solid black;">
-                <h3>DOCTOR4</h3>
-                <span>Veterinarian</span>
-                <div class="share" >
-                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                  <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
-            </div>
-           </div>
-    </section>
-    <div class="modal modal__form hidden">
-      <button class="btn--close-modal">&times;</button>
-      <div class="modal__wrap--form">
-        <div class="modal__login">
-          <h2 class="modal__header"><span class="highlight">Login to account</span></h2>
-          <form class="modal__form-login">
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <button class="btn btn--login">Login</button>
-          </form>
-          <p>Forgot password or username, <a href="#" class="click-here">click here</a></p>
-        </div>
-        <div class="modal__register">
-          <h2 class="modal__header">Or register account when not have yet</h2>
-          <form class="modal__form-register">
-            <input type="text" placeholder="Username">
-            <input type="email" placeholder="Email Adress">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Password re-type">
-            <button class="btn btn--login">Register</button>
-          </form>
         </div>
       </div>
-    </div>
-    <div class="modal modal__contact hidden">
-      <button class="btn--close-modal">&times;</button>
-      <div class="modal__wrap--contact">
-        <h2 class="modal__header modal__header--contact"><span class="highlight">Contact Us</h2>
-        <input type="text" placeholder="Name">
-        <input type="email" placeholder="Email Adress">
-        <textarea placeholder="Message"></textarea>
-        <button class="btn btn--send">Send</button>
-      </div>
-    </div>
-  
-    <div class="overlay hidden"></div>
-  
-    <button class="btn btn--scroll"><i class="fa-solid fa-arrow-up"></i></button>
+    </section>
+
     
+    <section class="doctors hidden" id="doctors">
+      <h1 class="heading" style="text-align: center;">Our <span style="text-align: center;">Doctors</span></h1>
+      <div class="box-container">
+
+        <div class="box " style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
+          <img src="images/doctor1.jpg" alt="" style="border: 2px solid black;">
+          <h3>DOCTOR1</h3>
+          <span>Veterinarian</span>
+          <div class="share">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
+          <img src="images/doctor2.jpg" alt="" style="border: 2px solid black;">
+          <h3>DOCTOR2</h3>
+          <span>Veterinarian</span>
+          <div class="share">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
+          <img src="images/doctor2.jpg" alt="" style="border: 2px solid black;">
+          <h3>DOCTOR3</h3>
+          <span>Veterinarian</span>
+          <div class="share">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
+          <img src="images/doctor2.jpg" alt="" style="border: 2px solid black;">
+          <h3>DOCTOR4</h3>
+          <span>Veterinarian</span>
+          <div class="share">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.getElementById('submit-btn').addEventListener('click', function (event) {
+        event.preventDefault(); 
+
+       
+        const doctorsSection = document.getElementById('doctors');
+        doctorsSection.classList.remove('hidden');
+
+       
+        doctorsSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    </script>
+
 </body>
+
 </html>
