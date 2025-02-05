@@ -27,10 +27,6 @@ In course, the site wasn't responsive, that's why I starded from Desktop view (U
 ![](images/mobile.png)![](.images/tablet.png)
 ![](images/desktop.png)
 
-## Demo
-
-- Live Site URL: [Live Demo](https://xakashax.github.io/pet-care-website/)
-
 ## Built with
 
 - Semantic HTML5 markup
