@@ -35,6 +35,95 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+
+    .container {
+          background: white;
+          border-radius: 1rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+  
+      h2 {
+          text-align: center;
+          color: white;
+          margin-bottom: 1.5rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+      }
+
+    .social-icons {
+          display: flex;
+          gap: 2rem;
+          justify-content: center;
+      }
+  
+      .social-icon {
+          color: white;
+          font-size: 2rem;
+          transition: all 0.3s ease;
+          cursor: pointer;
+      }
+  
+      .social-icon:hover {
+          transform: translateY(-8px) scale(1.25);
+      }
+  
+      .fa-twitter:hover { color: #1DA1F2; }
+      .fa-github:hover { color: #333; }
+      .fa-linkedin:hover { color: #0077B5; }
+      .fa-instagram:hover { color: #E4405F; }
+      .fa-facebook:hover { color: #1877F2; }
+  
+      .footer {
+          padding: 2rem;
+          text-align: center;
+      }
+  
+      .footer__nav {
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 2rem;
+          margin-bottom: 2rem;
+          padding: 0;
+      }
+  
+      .footer__item {
+          margin: 0;
+      }
+  
+      .footer__link {
+          text-decoration: none;
+          color: #4b5563;
+          transition: color 0.3s ease;
+      }
+  
+      .footer__link:hover {
+          color: #1f2937;
+      }
+  
+      .footer__logo {
+          max-width: 100px;
+          margin: 2rem 0;
+      }
+  
+      .social-media {
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          margin: 2rem 0;
+      }
+  
+      .footer__copyright {
+          color: #4b5563;
+          margin-top: 2rem;
+      }
+  
+      .github-link {
+          color: #333;
+          font-weight: bold;
+      }
+
 </style>
 
   <title>PAWXIE</title>
@@ -352,32 +441,49 @@
 
   <div class="loader" id="loader"></div> <!-- Loader Part Change -->
 
+  <div class="container">
   <footer class="footer">
     <ul class="footer__nav">
       <li class="footer__item">
-        <a href="#section--1" class="footer__link">About</a>
+        <a href="#section--1" class="footer__link"style="color: white;">About</a>
       </li>
       <li class="footer__item">
-        <a href="" class="footer__link">Terms of Use</a>
+        <a href="" class="footer__link"style="color: white;">Terms of Use</a>
       </li>
       <li class="footer__item">
-        <a href="" class="footer__link">Privacy Policy</a>
+        <a href="" class="footer__link"style="color: white;">Privacy Policy</a>
       </li>
       <li class="footer__item">
-        <a href="#section--3" class="footer__link">Add</a>
+        <a href="" class="footer__link"style="color: white;">Blog</a>
       </li>
       <li class="footer__item">
-        <a href="" class="footer__link">Add</a>
-      </li>
-      <li class="footer__item">
-        <a href="#section--5" class="footer__link">Contact Us</a>
+        <a href="#section--5" class="footer__link"style="color: white;">Contact Us</a>
       </li>
     </ul>
-    <img src="images/paw_logo.png" alt="Logo" class="footer__logo">
-    <p class="footer__copyright">
-      © Made by <a href="https://github.com/GyanaPrakashSahoo7853" class="footer__link github-link" target="_blank">GyanaPrakashSahoo</a>
-    </p>
+    
+    
+      <h2>Connect With Us</h2>
+      <div class="social-icons">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <i class="social-icon fab fa-twitter"></i>
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="social-icon fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="social-icon fab fa-linkedin"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="social-icon fab fa-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="social-icon fab fa-facebook"></i>
+          </a>
+      </div>
+  </div>
+   
   </footer>
+
 
   <div class="modal modal__form hidden">
     <button class="btn--close-modal">&times;</button>
@@ -423,3 +529,17 @@
 
 
 </html>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <script>
+          $(document).ready(function() {
+              // Add hover animation class
+              $('.social-icon').hover(
+                  function() {
+                      $(this).addClass('animated');
+                  },
+                  function() {
+                      $(this).removeClass('animated');
+                  }
+              );
+          });
+      </script>
