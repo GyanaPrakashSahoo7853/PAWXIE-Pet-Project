@@ -51,21 +51,18 @@
 </script>
 </head>
 
-<body>
+<body style="background-color: rgba(246, 232, 174, 0.624);">
 
   <header class="header" id="#header">
     <nav class="nav nav__desktop">
       <img src="images/PAWXIELOGO.png" style="height: 130px;width: 150px;" alt="Pet Care logo" class="nav__logo" id="logo">
 
-      <ul class="nav__links">
+      <ul class="nav__links" style="color: rgb(74, 9, 9);">
         <li class="nav__item current">
           <a href="#section--1" class="nav__link nav__link--section">Our Services</a>
         </li>
         <li class="nav__item">
           <a href="#section--2" class="nav__link nav__link--section">Our Values</a>
-        </li>
-        <li class="nav__item">
-          <a href="#section--3" class="nav__link nav__link--section">Products</a>
         </li>
         <li class="nav__item">
           <a href="#section--4" class="nav__link nav__link--section">Testimonials</a>
@@ -114,11 +111,11 @@
     </div>
 
     <div class="header__title">
-      <h1>Take better care of <br />
-        <span class="highlight"> Your Pet</span>
-      </h1>
+      <h1>Your Trusted <br>Guide in<br>
+       <b><span class="highlight" style="color: rgb(235, 22, 22);font-size: 5.2rem;padding-left: 0%;">Medical <br>Emergencies</span></b></h1>
+     
       <h4>Dedicated to Pets and People.</h4>
-      <button class="btn btn--header" type="button" onclick="window.location.href='Appointment.html' " onclick="delayedRedirect()">Book Appointment <i class="fa-solid fa-paw"></i></button>
+      <button class="btn btn--header" type="button" onclick="window.location.href='Appointment.html' " onclick="delayedRedirect()" style="background-color: rgba(100, 200, 167, 0.56);color: rgb(18, 16, 16);">Book Appointment <i class="fa-solid fa-paw"></i></button>
       <img src="images/header__img.jpg" alt="Image of dog" class="header__img">
     </div>
   </header>
@@ -126,7 +123,7 @@
   <section class="section" id="section--1">
     <div class="section__title">
       <h2 class="section__desription">Our Services</h2>
-      <h3 class="section__header">Where pet care is personal</h3>
+      <h3 class="section__header"></h3>
     </div>
 
     <div class="services">
@@ -273,71 +270,6 @@
 
   </section>
 
-  <section class="section" id="section--3">
-    <div class="section__title">
-      <h2 class="section__desription">Products</h2>
-      <h3 class="section__header">Reliable healthy food for your pet</h3>
-    </div>
-
-    <div class="products">
-      <div class="product__container product__container--1">
-        <div class="product--img">
-          <img src="images/product1.jpg" alt="snacks">
-        </div>
-        <div class="product__description--wrap">
-          <div class="product__description--text">
-            <h3 class="product__name">Dog Snacks</h3>
-            <p class="price">$2.29</p>
-          </div>
-          <button class="btn btn--product btn--show-modal"><img src="images/icon-shop.svg" alt="shopping cart icon"
-              class="shop" title="Buy Now!"></button>
-        </div>
-      </div>
-
-      <div class="product__container product__container--2">
-        <div class="product--img">
-          <img src="images/product2.jpg" alt="bowl">
-        </div>
-        <div class="product__description--wrap">
-          <div class="product__description--text">
-            <h3 class="product__name">Wet Food</h3>
-            <p class="price">$11.99</p>
-          </div>
-          <button class="btn btn--product btn--show-modal"><img src="images/icon-shop.svg" alt="shopping cart icon"
-              class="shop" title="Buy Now!"></button>
-        </div>
-      </div>
-
-      <div class="product__container product__container--3">
-        <div class="product--img">
-          <img src="images/product3.jpg" alt="meat">
-        </div>
-        <div class="product__description--wrap">
-          <div class="product__description--text">
-            <h3 class="product__name">Meat</h3>
-            <p class="price">$20.50</p>
-          </div>
-          <button class="btn btn--product btn--show-modal"><img src="images/icon-shop.svg" alt="shopping cart icon"
-              class="shop" title="Buy Now!"></button>
-        </div>
-      </div>
-
-      <div class="product__container product__container--4">
-        <div class="product--img">
-          <img src="images/product4.jpg" alt="bone">
-        </div>
-        <div class="product__description--wrap">
-          <div class="product__description--text">
-            <h3 class="product__name">Bone</h3>
-            <p class="price">$8.99</p>
-          </div>
-          <button class="btn btn--product btn--show-modal"><img src="images/icon-shop.svg" alt="shopping cart icon"
-              class="shop" title="Buy Now!"></button>
-        </div>
-      </div>
-    </div>
-
-  </section>
 
   <section class="section" id="section--4">
     <div class="section__title section__title--testimonials">
@@ -350,14 +282,17 @@
       <div class="slide slider--1">
         <div class="testimonial">
           <blockquote class="testimonial__text">
-            “Thank you, for another excellent groom on Lola. Highly recommend you for the calm and friendly environment
-            and the services you provide for all dogs that enter the studio. Look forward to bringing Lola in again
-            soon.”
+            <b>Review:</b>
+            <br>
+            ⭐⭐⭐⭐⭐  
+            <br>
+            "I can't express how grateful I am for this website! During a serious accident involving my cat, I was in complete panic and didn't know where to go. This platform quickly provided me with nearby hospitals and available doctors, which helped me get immediate medical attention. Thanks to this website, my cat's life was saved! Highly recommended for pet owners and emergencies. ❤️🐱"   
+
           </blockquote>
           <address class="testimonial__author">
             <img src="images/testimonial1.jpg" alt="avatar" class="testimonial__avatar">
-            <h6 class="testimonial__name">Demi Marie S.</h6>
-            <p class="testimonial__date">Dec. 8, 2022</p>
+            <h6 class="testimonial__name">Devi Shah</h6>
+            <p class="testimonial__date">Dec. 29, 2024</p>
           </address>
         </div>
       </div>
@@ -365,13 +300,16 @@
       <div class="slide slider--2">
         <div class="testimonial">
           <blockquote class="testimonial__text">
-            My sitter took great care of my cat, above and beyond my expectations. I
-            would book with Rover again in a heartbeat!
-          </blockquote>
+            Review : 
+            <br>
+            ⭐⭐⭐⭐⭐  
+            <br>
+            "This website is a lifesaver—literally! When my cat had a medical emergency, I was able to find the nearest hospital with an available vet within seconds. The real-time doctor availability feature made all the difference. Thank you for creating such a helpful platform!"  
+            </blockquote>
           <address class="testimonial__author">
             <img src="images/testimonial2.jpg" alt="avatar" class="testimonial__avatar">
-            <h6 class="testimonial__name"> Danielle H.</h6>
-            <p class="testimonial__date">June 3rd, 2022</p>
+            <h6 class="testimonial__name"> Durga Prasad Satapathy</h6>
+            <p class="testimonial__date">Jan 3rd, 2025</p>
           </address>
         </div>
       </div>
@@ -379,14 +317,16 @@
       <div class="slide slider--3">
         <div class="testimonial">
           <blockquote class="testimonial__text">
-            Everyone in the Pet Care is absolutely wonder. They have cared for our puppy since we moved to the area a
-            few years ago. The staff was incredibly compassionate and handled the situation with the utmost care and
-            delicacy. I would highly recommend to anyone!
+            Review :  
+            <br>
+            ⭐⭐⭐⭐⭐  
+            <br>
+            "I never thought I’d need this website until my cat was seriously injured. In that moment of panic, this platform guided me to the nearest hospital, ensuring my cat got urgent care. I can’t thank you enough for making this service available!"
           </blockquote>
           <address class="testimonial__author">
             <img src="images/testimonial3.jpg" alt="avatar" class="testimonial__avatar">
-            <h6 class="testimonial__name">Michael P.</h6>
-            <p class="testimonial__date">Apr 13, 2022</p>
+            <h6 class="testimonial__name">Manoj Tiwari</h6>
+            <p class="testimonial__date">Nov 13, 2024</p>
           </address>
         </div>
       </div>
