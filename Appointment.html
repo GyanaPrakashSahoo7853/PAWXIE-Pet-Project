@@ -40,11 +40,48 @@
       transform: translateY(4px);
       box-shadow: 1px 1px 0px 0px #E99F4C;
     }
+    .box {
+  perspective: 1000px;
+}
+
+.box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.box.flipped .box-inner {
+  transform: rotateY(180deg);
+}
+
+.box-front,
+.box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.box-back {
+  transform: rotateY(180deg);
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+    
     body {
       overflow-x: hidden;
     }
 
-   
     .hidden {
       display: none !important;
     }
@@ -155,12 +192,6 @@
       margin-top: 30px;
     }
 
-    .formbold-main-wrapper {
-      font-family: "Inter", Arial, Helvetica, sans-serif;
-      font-weight: 600;
-      border: none;
-    }
-
     .formbold-form-label {
       display: block;
       font-weight: 600;
@@ -208,16 +239,10 @@
       width: 30%;
       cursor: pointer;
       margin-left: 120px;
-      
     }
 
     .formbold-btn:hover {
       opacity: .9;
-    }
-
-    .formbold-form-input:focus {
-      transform: translateY(4px);
-      box-shadow: 1px 1px 0px 0px #E99F4C;
     }
 
     .formbold-btn:active {
@@ -246,6 +271,7 @@
     .w-full {
       width: 90%;
     }
+    
 
     @media (min-width: 768px) {
       .row {
@@ -325,15 +351,15 @@
 
     <section class="book" id="book">
       <h1 class="heading" style="text-align: center;">Book <span style="text-align: center;">Now</span></h1>
-  
+
       <div class="row">
         <div class="image">
           <img src="images/book.jpg" alt="">
         </div>
-  
+
         <div class="formbold-main-wrapper" style="margin-right: 480px;">
           <div class="formbold-form-wrapper">
-            <form action="#" method="POST">
+            <form id="appointment-form">
               <div class="formbold-mb-5">
                 <h2 style="text-align: center;">Book Appointment </h2>
                 <br>
@@ -342,31 +368,32 @@
               </div>
               <div class="flex flex-wrap formbold--mx-3">
                 <div class="form-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                  
+                 
                   <div class="w-full sm:w-half formbold-px-3" style="flex: 1;">
                     <div class="formbold-mb-5 w-full">
                       <label for="date" class="formbold-form-label" style="font-weight: bold;">Date</label>
                       <input type="date" name="date" id="date" class="formbold-form-input"
-                        style="width: 200px; color: black;" />
+                        style="width: 200px; color: black;" required />
                     </div>
                   </div>
-  
+
                   
                   <div class="w-full sm:w-half formbold-px-3" style="flex: 1;">
                     <div class="formbold-mb-5">
                       <label for="time" class="formbold-form-label" style="font-weight: bold;">Time</label>
-                      <input type="time" name="time" id="time" class="formbold-form-input" style="width: 140px;"pattern="(0[1-9]|1[0-2]):[0-5][0-9] (AM|PM)" placeholder="HH:MM AM/PM" />
+                      <input type="time" name="time" id="time" class="formbold-form-input" style="width: 140px;" required />
                     </div>
                   </div>
                 </div>
-  
+
                 <div class="w-full sm:w-half formbold-px-3">
                   <div class="formbold-mb-5">
-                    <label for="time" class="formbold-form-label"> Location </label>
+                    <label for="location" class="formbold-form-label"> Location </label>
                     <input id="location" placeholder="e.g., Remote or Physical Address" class="formbold-form-input" />
                   </div>
+                  
                   <div style="display: flex; justify-content: center;">
-                    <button id="submit-btn" class="formbold-btn" type="button">Submit</button>
+                    <button type="submit" id="submit-btn" class="formbold-btn">Submit</button>
                     <button type="button" class="emergency-btn" class="emergency-btn" onclick="window.location.href= 'Emergency.html' "onclick="delayedRedirect()">Emergency Booking  <i class="fa-solid fa-paw"></i></button>
                   </div>
                 </div>
@@ -379,122 +406,142 @@
     
     <section class="doctors hidden" id="doctors">
       <h1 class="heading" style="text-align: center;">Our <span style="text-align: center;">Doctors</span></h1>
-      <div class="box-container">
-
-        <div class="box " style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;" data-available-dates="2025-01-01,2025-01-10" data-available-times="09:00,10:00">
-          <img src="images/doctor1.jpg" alt="" style="border: 2px solid black;">
-          <h3>DOCTOR1</h3>
-          <span>Veterinarian</span>
-          <div class="share">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          </div>
-        </div>
-
-        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;"data-available-dates="2025-01-11,2025-01-20" data-available-times="09:00,10:00">
-          <img src="images/doctor2.jpg" alt="" style="border: 2px solid black;">
-          <h3>DOCTOR2</h3>
-          <span>Veterinarian</span>
-          <div class="share">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          </div>
-        </div>
-
-        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;"data-available-dates="2025-01-21,2025-01-31" data-available-times="09:00,10:00">
-          <img src="images/doctor2.jpg" alt="" style="border: 2px solid black;">
-          <h3>DOCTOR3</h3>
-          <span>Veterinarian</span>
-          <div class="share">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          </div>
-        </div>
-
-        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;"data-available-dates="2025-02-01,2025-02-10" data-available-times="09:00,10:00">
-          <img src="images/doctor2.jpg" alt="" style="border: 2px solid black;">
-          <h3>DOCTOR4</h3>
-          <span>Veterinarian</span>
-          <div class="share">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          </div>
-        </div>
-
-        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;"data-available-dates="2025-02-11,2025-02-20" data-available-times="09:00 AM,10:00 PM">
-          <img src="images/doctor2.jpg" alt="" style="border: 2px solid black;">
-          <h3>DOCTOR5</h3>
-          <span>Veterinarian</span>
-          <div class="share">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          </div>
-        </div>
-
-        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;"data-available-dates="2025-02-21,2025-02-31" data-available-times="09:00,10:00">
-          <img src="images/doctor2.jpg" alt="" style="border: 2px solid black;">
-          <h3>DOCTOR6</h3>
-          <span>Veterinarian</span>
-          <div class="share">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          </div>
-        </div>
+      <div class="box-container" id="doctor-list">
+        
       </div>
     </section>
 
     <script>
-      document.getElementById('submit-btn').addEventListener('click', function (event) {
-        event.preventDefault(); 
+      document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("appointment-form").addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
-    const location = document.getElementById('location').value;
-    const nameRegex = /^[A-Za-z\s]+$/;
+        let selectedDate = document.getElementById("date").value.trim();
+        let selectedDay = getDayOfWeek(selectedDate);
+        let doctorsToShow = [];
 
-    if (!name || !date || !time || !location) {
-      alert('Please fill in all the fields.');
-      return;
-    }
+        if (["Monday", "Wednesday", "Friday"].includes(selectedDay)) {
+            doctorsToShow = doctorGroups["MWF"];
+        } else if (["Tuesday", "Thursday", "Saturday", "Sunday"].includes(selectedDay)) {
+            doctorsToShow = doctorGroups["TTSS"];
+        }
 
-    if (!nameRegex.test(name)) {
-      alert('Name can only contain letters.');
-      return;
-    }
-        const doctorsSection = document.getElementById('doctors');
-        const doctorBoxes = doctorsSection.querySelectorAll('.box');
+        const doctorList = document.getElementById("doctor-list");
+        doctorList.innerHTML = "";
 
-    doctorBoxes.forEach(box => {
-      const availableDates = box.getAttribute('data-available-dates').split(',');
-      const availableTimes = box.getAttribute('data-available-times').split(',');
+        if (doctorsToShow.length > 0) {
+            doctorsToShow.forEach((doctor) => {
+                const doctorBox = `
+                    <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
+                        <div class="box-inner">
+                            <div class="box-front">
+                                <img src="${doctor.image}" alt="" style="border: 2px solid black;">
+                                <h3>${doctor.name}</h3>
+                                <span>Veterinarian</span>
+                                <div class="share">
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                </div>
+                            </div>
+                            <div class="box-back">
+                                <h3>${doctor.name}</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expert in pet care.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                doctorList.insertAdjacentHTML("beforeend", doctorBox);
+            });
+        } else {
+            doctorList.innerHTML = "<p>No doctors available at the selected time.</p>";
+        }
 
-      if (availableDates.includes(date) && availableTimes.includes(time)) {
-        box.style.display = 'block';
-      } else {
-        box.style.display = 'none';
-      }
+        document.getElementById("doctors").classList.remove("hidden");
+        document.getElementById("doctors").scrollIntoView({ behavior: "smooth", block: "start" });
+
+        // Add event listener for flipping cards
+        document.querySelectorAll(".box").forEach((box) => {
+            box.addEventListener("click", function () {
+                this.classList.toggle("flipped");
+            });
+        });
     });
-        doctorsSection.classList.remove('hidden');
+});
+
+      const doctorGroups = {
+            "MWF": [ 
+                { name: "DOCTOR1", image: "images/doctor1.jpg" },
+                { name: "DOCTOR2", image: "images/doctor2.jpg" },
+                { name: "DOCTOR3", image: "images/doctor3.jpg" }
+            ],
+            "TTSS": [ 
+                { name: "DOCTOR4", image: "images/doctor4.jpg" },
+                { name: "DOCTOR5", image: "images/doctor5.jpg" },
+                { name: "DOCTOR6", image: "images/doctor6.jpg" }
+            ]
+        };
 
        
-        doctorsSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        function getDayOfWeek(dateString) {
+            const date = new Date(dateString);
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            return days[date.getDay()];
+        }
+
+      
+        document.getElementById("appointment-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let selectedDate = document.getElementById("date").value.trim();  
+            let selectedDay = getDayOfWeek(selectedDate);  
+
+            console.log("Selected Date:", selectedDate);  
+            console.log("Selected Day:", selectedDay);  
+            let doctorsToShow = [];
+
+           
+            if (["Monday", "Wednesday", "Friday"].includes(selectedDay)) {
+                doctorsToShow = doctorGroups["MWF"];
+            } else if (["Tuesday", "Thursday", "Saturday", "Sunday"].includes(selectedDay)) {
+                doctorsToShow = doctorGroups["TTSS"];
+            }
+
+          
+            const doctorList = document.getElementById("doctor-list");
+            doctorList.innerHTML = "";
+
+          
+            if (doctorsToShow.length > 0) {
+                doctorsToShow.forEach((doctor) => {
+                    const doctorBox = `
+                        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
+                            <img src="${doctor.image}" alt="" style="border: 2px solid black;">
+                            <h3>${doctor.name}</h3>
+                            <span>Veterinarian</span>
+                            <div class="share">
+                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            </div>
+                        </div>
+                    `;
+                    doctorList.insertAdjacentHTML("beforeend", doctorBox);
+                });
+            } else {
+                doctorList.innerHTML = "<p>No doctors available at the selected time.</p>";
+            }
+
+            
+            const doctorsSection = document.getElementById("doctors");
+            doctorsSection.classList.remove("hidden");
+
+           
+            doctorsSection.scrollIntoView({ behavior: "smooth", block: "start" });
         });
-      });
+
     </script>
 
 </body>
