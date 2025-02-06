@@ -1,5 +1,5 @@
 :root {
-  --color-primary: hsl(193, 66%, 24%);
+  --color-primary: hsla(193, 65%, 44%, 0.984);
   --color-secondary: hsl(16, 100%, 62%);
   --color-tertiary: hsl(29, 100%, 62%);
   --color-quaternary: hsl(43, 100%, 62%);
@@ -320,7 +320,7 @@ h4 {
   transform: scale(1.07, 1.05) skewX(-15deg);
   height: 100%;
   width: 100%;
-  background-color: var(--color-tertiary);
+ 
 }
 
 .btn.btn--header:hover {
@@ -523,7 +523,7 @@ h4 {
   overflow: hidden;
   margin: 0 auto;
   max-width: 100vw;
-  height: 30rem;
+  height: 38rem;
 }
 
 .slide {
@@ -536,7 +536,7 @@ h4 {
   transition: transform 1s;
   border: 5px solid;
   width: 100%;
-  height: 30rem;
+  height: 37rem;
   background-color: var(--color-white);
 }
 
