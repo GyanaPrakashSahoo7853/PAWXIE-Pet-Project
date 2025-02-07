@@ -70,9 +70,6 @@
                     <a href="#section--2" class="nav__link nav__link--section">Our Values</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#section--3" class="nav__link nav__link--section">Products</a>
-                </li>
-                <li class="nav__item">
                     <a href="#section--4" class="nav__link nav__link--section">Testimonials</a>
                 </li>
                 <li class="nav__item">
@@ -158,10 +155,22 @@
                 setTimeout(() => {
                     alert('Ambulance booked successfully!');
                 }, 100);
-            } else {
+            } 
+            else if (width==100){
+                bookAmbulanceBtn.disabled = true;
+                bookAmbulanceBtn.style.backgroundColor = '#d3d3d3';
+                bookAmbulanceBtn.innerText = 'Ambulance Booked';
+                setTimeout(() => {
+                    bookAmbulanceBtn.disabled = false;
+                    bookAmbulanceBtn.style.backgroundColor = '#007bff';
+                    bookAmbulanceBtn.innerText = 'Book Ambulance';
+                }, 300000);
+            }
+            else {
                 width++;
                 progressBarFill.style.width = width + '%';
                 progressBarFill.innerHTML = width + '%';
+                
             }
         }, 100);
     }
