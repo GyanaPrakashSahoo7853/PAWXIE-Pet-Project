@@ -17,13 +17,16 @@ A modern, visually appealing, and highly functional pet veterinary care website 
 - Hover states for all interactive elements on the page,
 - The optimal layout for the site depending on their device's screen size
 
+
 ### Technologies Used :
 - HTML5 – Structuring the website content.
 - CSS3 & Bootstrap 5 – Styling the website with custom design and Bootstrap components.
 - jQuery – Adding interactive features like appointment forms and animations.
 - OpenStreetMap / Leaflet API – Displaying interactive maps for clinic locations.
 
-## Screenshots :
+  
+## ScreenShot:
+
 
 
 
