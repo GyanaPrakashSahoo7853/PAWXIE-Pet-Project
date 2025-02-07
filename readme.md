@@ -21,11 +21,9 @@ In course, the site wasn't responsive, that's why I starded from Desktop view (U
 - Scroll Up Button,
 - Hover states for all interactive elements on the page,
 - The optimal layout for the site depending on their device's screen size
-
-## Screenshot
-
-![](images/mobile.png)![](.images/tablet.png)
-![](images/desktop.png)
+- Integrated MAP using LEAFLET
+  
+## ScreenShot:
 
 ## Built with
 
@@ -35,7 +33,6 @@ In course, the site wasn't responsive, that's why I starded from Desktop view (U
 - Flexbox and Grid
 - Desktop-first workflow
 - JS
-- Photoshop
 
 ## Photos
 
