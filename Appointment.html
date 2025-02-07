@@ -17,6 +17,13 @@
 
   <title>Appointment</title>
   <style>
+    
+    #doctor-list h2 {
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+}
     .emergency-btn {
       text-align: center;
       padding: 15px 10px;
@@ -26,70 +33,67 @@
       background: #ff0000;
       border-radius: 10px;
       box-shadow: 3px 3px 0px 0px #E99F4C;
-      color: white; 
-      width: 40%;
+      color: white;
+
       cursor: pointer;
-      margin-left: 20px; 
+
       transition: background-color 0.3s ease;
+      margin-left: 0;
+
+      width: 100%;
+      margin: 0 5px;
     }
 
     .emergency-btn:hover {
-      background: #cc0000; 
+      background: #cc0000;
     }
+
     .emergency-btn:active {
       transform: translateY(4px);
       box-shadow: 1px 1px 0px 0px #E99F4C;
     }
+
+    div[style*="display: flex; justify-content: center;"] {
+      width: 100%;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+
     .box {
-  perspective: 1000px;
-}
+      perspective: 1000px;
+      
+    }
+    
 
-.box-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.box.flipped .box-inner {
-  transform: rotateY(180deg);
-}
-
-.box-front,
-.box-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.box-back {
-  transform: rotateY(180deg);
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+    .box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
 
     
     body {
       overflow-x: hidden;
     }
 
-    .hidden {
-      display: none !important;
+    .doctors {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .doctors.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .box-container {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 2rem;
       max-width: 100%;
       padding: 20px;
@@ -109,6 +113,7 @@
       align-items: center;
       justify-content: space-between;
     }
+    
 
     .box img {
       width: 100%;
@@ -165,7 +170,23 @@
       text-align: center;
       color: #22a4c4;
     }
+    .formbold-form-select {
+      width: 100%;
+      padding: 15px 15px;
+      border-radius: 6px;
+      background: white;
+      font-weight: 500;
+      font-size: 16px;
+      color: black;
+      outline: none;
+      border: 2px solid #264143;
+      box-shadow: 3px 4px 0px 1px #E99F4C;
+      margin-bottom: 20px;
+    }
 
+    .formbold-form-select:focus {
+      border-color: #6a64f1;
+    }
     .formbold-mb-5 {
       margin-bottom: 28px;
       padding: 8px;
@@ -235,10 +256,14 @@
       background: #176565;
       border-radius: 10px;
       box-shadow: 3px 3px 0px 0px #E99F4C;
-      color: black;
-      width: 30%;
+      color:white;
+
       cursor: pointer;
-      margin-left: 120px;
+
+      margin-left: 0;
+
+      width: 45%;
+      margin: 0 5px;
     }
 
     .formbold-btn:hover {
@@ -271,63 +296,119 @@
     .w-full {
       width: 90%;
     }
-    
 
-    @media (min-width: 768px) {
-      .row {
-        flex-direction: row;
-      }
 
-      .image,
+    @media (max-width: 1200px) {
       .formbold-main-wrapper {
-        flex: 1;
+        margin-left: auto;
+        margin-right: auto;
       }
+    }
+
+    @media (max-width: 992px) {
+      .nav__desktop {
+        display: none;
+      }
+
+      .nav__mobile {
+        display: flex;
+      }
+
+      .box-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .box {
+        width: 80%;
+      }
+
+      .formbold-main-wrapper {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .formbold-main-wrapper {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .formbold-btn,
+      .emergency-btn {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .box {
+        width: 90%;
+      }
+
+      .nav__mobile--open {
+        display: block;
+      }
+
+      .nav__links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        background: white;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+      }
+
+      .nav__links.active {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .box {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .formbold-form-wrapper {
+        padding: 15px;
+      }
+
+      .formbold-form-input {
+        padding: 10px;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    input,
+    button {
+      width: 100%;
     }
   </style>
 </head>
 
-<body>
 
-  <header class="header" id="#header">
-    <nav class="nav nav__desktop">
-      <img src="images/PAWXIELOGO.png" style="height: 130px;width: 150px;" alt="Pet Care logo" class="nav__logo"
-        id="logo">
 
-      <ul class="nav__links">
-        <li class="nav__item current">
-          <a href="#section--1" class="nav__link nav__link--section">Our Services</a>
-        </li>
-        <li class="nav__item">
-          <a href="#section--2" class="nav__link nav__link--section">Our Values</a>
-        </li>
-        <li class="nav__item">
-          <a href="#section--3" class="nav__link nav__link--section">Products</a>
-        </li>
-        <li class="nav__item">
-          <a href="#section--4" class="nav__link nav__link--section">Testimonials</a>
-        </li>
-        <li class="nav__item">
-          <a href="#section--5" class="nav__link nav__link--section">Contact</a>
-        </li>
-        <li class="nav__item">
-          <a href="#" class="nav__link btn nav__link--btn btn--show-modal"><img src="images/icon-user.svg"
-              alt="login icon"></a>
-        </li>
-      </ul>
-    </nav>
+  <body style="background-color: rgba(246, 232, 174, 0.624);">
 
-    <div class="nav__mobile--wrap">
-      <nav class="nav nav__mobile">
-        <img src="images/paw_logo.png" alt="Pet Care logo" class="nav__logo" id="logo">
-        <ul class="nav__links nav__links-mobile">
+    <header class="header" id="#header">
+      <nav class="nav nav__desktop">
+        <img src="images/PAWXIELOGO.png" style="height: 130px;width: 150px;" alt="Pet Care logo" class="nav__logo"
+          id="logo">
+  
+        <ul class="nav__links">
           <li class="nav__item current">
             <a href="#section--1" class="nav__link nav__link--section">Our Services</a>
           </li>
           <li class="nav__item">
             <a href="#section--2" class="nav__link nav__link--section">Our Values</a>
-          </li>
-          <li class="nav__item">
-            <a href="#section--3" class="nav__link nav__link--section">Products</a>
           </li>
           <li class="nav__item">
             <a href="#section--4" class="nav__link nav__link--section">Testimonials</a>
@@ -340,210 +421,251 @@
                 alt="login icon"></a>
           </li>
         </ul>
-        <div class="nav__mobile--open">
-          <i class="fa-solid fa-bars"></i>
-        </div>
-        <div class="nav__mobile--close">
-          <i class="fa-solid fa-x"></i>
-        </div>
       </nav>
-    </div>
-
-    <section class="book" id="book">
-      <h1 class="heading" style="text-align: center;">Book <span style="text-align: center;">Now</span></h1>
-
-      <div class="row">
-        <div class="image">
-          <img src="images/book.jpg" alt="">
-        </div>
-
-        <div class="formbold-main-wrapper" style="margin-right: 480px;">
-          <div class="formbold-form-wrapper">
-            <form id="appointment-form">
-              <div class="formbold-mb-5">
-                <h2 style="text-align: center;">Book Appointment </h2>
-                <br>
-                <label for="name" class="formbold-form-label"> Enter Name </label>
-                <input type="text" name="name" id="name" placeholder="Enter Your Name" class="formbold-form-input" />
-              </div>
-              <div class="flex flex-wrap formbold--mx-3">
-                <div class="form-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                 
-                  <div class="w-full sm:w-half formbold-px-3" style="flex: 1;">
-                    <div class="formbold-mb-5 w-full">
-                      <label for="date" class="formbold-form-label" style="font-weight: bold;">Date</label>
-                      <input type="date" name="date" id="date" class="formbold-form-input"
-                        style="width: 200px; color: black;" required />
-                    </div>
-                  </div>
-
-                  
-                  <div class="w-full sm:w-half formbold-px-3" style="flex: 1;">
-                    <div class="formbold-mb-5">
-                      <label for="time" class="formbold-form-label" style="font-weight: bold;">Time</label>
-                      <input type="time" name="time" id="time" class="formbold-form-input" style="width: 140px;" required />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="w-full sm:w-half formbold-px-3">
-                  <div class="formbold-mb-5">
-                    <label for="location" class="formbold-form-label"> Location </label>
-                    <input id="location" placeholder="e.g., Remote or Physical Address" class="formbold-form-input" />
-                  </div>
-                  
-                  <div style="display: flex; justify-content: center;">
-                    <button type="submit" id="submit-btn" class="formbold-btn">Submit</button>
-                    <button type="button" class="emergency-btn" class="emergency-btn" onclick="window.location.href= 'Emergency.html' "onclick="delayedRedirect()">Emergency Booking  <i class="fa-solid fa-paw"></i></button>
-                  </div>
-                </div>
-            </form>
+  
+  
+      <div class="nav__mobile--wrap">
+        <nav class="nav nav__mobile">
+          <img src="images/paw_logo.png" alt="Pet Care logo" class="nav__logo" id="logo">
+          <ul class="nav__links nav__links-mobile">
+            <li class="nav__item current">
+              <a href="#section--1" class="nav__link nav__link--section">Our Services</a>
+            </li>
+            <li class="nav__item">
+              <a href="#section--2" class="nav__link nav__link--section">Our Values</a>
+            </li>
+            <li class="nav__item">
+              <a href="#section--4" class="nav__link nav__link--section">Testimonials</a>
+            </li>
+            <li class="nav__item">
+              <a href="#section--5" class="nav__link nav__link--section">Contact</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link btn nav__link--btn btn--show-modal"><img src="images/icon-user.svg"
+                  alt="login icon"></a>
+            </li>
+          </ul>
+          <div class="nav__mobile--open">
+            <i class="fa-solid fa-bars"></i>
           </div>
-        </div>
+          <div class="nav__mobile--close">
+            <i class="fa-solid fa-x"></i>
+          </div>
+        </nav>
       </div>
-    </section>
-
-    
-    <section class="doctors hidden" id="doctors">
-      <h1 class="heading" style="text-align: center;">Our <span style="text-align: center;">Doctors</span></h1>
-      <div class="box-container" id="doctor-list">
+  
+          <section class="book" id="book">
+            <h1 class="heading" style="text-align: center;">Book <span style="text-align: center;">Now</span></h1>
         
-      </div>
-    </section>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("appointment-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        let selectedDate = document.getElementById("date").value.trim();
-        let selectedDay = getDayOfWeek(selectedDate);
-        let doctorsToShow = [];
-
-        if (["Monday", "Wednesday", "Friday"].includes(selectedDay)) {
-            doctorsToShow = doctorGroups["MWF"];
-        } else if (["Tuesday", "Thursday", "Saturday", "Sunday"].includes(selectedDay)) {
-            doctorsToShow = doctorGroups["TTSS"];
-        }
-
-        const doctorList = document.getElementById("doctor-list");
-        doctorList.innerHTML = "";
-
-        if (doctorsToShow.length > 0) {
-            doctorsToShow.forEach((doctor) => {
-                const doctorBox = `
-                    <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
-                        <div class="box-inner">
-                            <div class="box-front">
-                                <img src="${doctor.image}" alt="" style="border: 2px solid black;">
-                                <h3>${doctor.name}</h3>
-                                <span>Veterinarian</span>
-                                <div class="share">
-                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                                </div>
-                            </div>
-                            <div class="box-back">
-                                <h3>${doctor.name}</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expert in pet care.</p>
-                            </div>
-                        </div>
+            <div class="row">
+              <div class="image">
+                <img src="images/book.jpg" alt="">
+              </div>
+        
+              <div class="formbold-main-wrapper" style="margin-right: 480px;">
+                <div class="formbold-form-wrapper">
+                  <form id="appointment-form">
+                    <div class="formbold-mb-5">
+                      <h2 style="text-align: center;">Book Appointment </h2>
+                      <br>
+                      <label for="name" class="formbold-form-label"> Enter Name </label>
+                      <input type="text" name="name" id="name" placeholder="Enter Your Name" class="formbold-form-input" />
                     </div>
-                `;
-                doctorList.insertAdjacentHTML("beforeend", doctorBox);
-            });
-        } else {
-            doctorList.innerHTML = "<p>No doctors available at the selected time.</p>";
-        }
-
-        document.getElementById("doctors").classList.remove("hidden");
-        document.getElementById("doctors").scrollIntoView({ behavior: "smooth", block: "start" });
-
-        // Add event listener for flipping cards
-        document.querySelectorAll(".box").forEach((box) => {
-            box.addEventListener("click", function () {
-                this.classList.toggle("flipped");
-            });
-        });
-    });
-});
-
-      const doctorGroups = {
-            "MWF": [ 
-                { name: "DOCTOR1", image: "images/doctor1.jpg" },
-                { name: "DOCTOR2", image: "images/doctor2.jpg" },
-                { name: "DOCTOR3", image: "images/doctor3.jpg" }
-            ],
-            "TTSS": [ 
-                { name: "DOCTOR4", image: "images/doctor4.jpg" },
-                { name: "DOCTOR5", image: "images/doctor5.jpg" },
-                { name: "DOCTOR6", image: "images/doctor6.jpg" }
-            ]
-        };
-
-       
-        function getDayOfWeek(dateString) {
-            const date = new Date(dateString);
-            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            return days[date.getDay()];
-        }
-
-      
-        document.getElementById("appointment-form").addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            let selectedDate = document.getElementById("date").value.trim();  
-            let selectedDay = getDayOfWeek(selectedDate);  
-
-            console.log("Selected Date:", selectedDate);  
-            console.log("Selected Day:", selectedDay);  
-            let doctorsToShow = [];
-
-           
-            if (["Monday", "Wednesday", "Friday"].includes(selectedDay)) {
-                doctorsToShow = doctorGroups["MWF"];
-            } else if (["Tuesday", "Thursday", "Saturday", "Sunday"].includes(selectedDay)) {
-                doctorsToShow = doctorGroups["TTSS"];
-            }
-
-          
-            const doctorList = document.getElementById("doctor-list");
-            doctorList.innerHTML = "";
-
-          
-            if (doctorsToShow.length > 0) {
-                doctorsToShow.forEach((doctor) => {
-                    const doctorBox = `
-                        <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
-                            <img src="${doctor.image}" alt="" style="border: 2px solid black;">
-                            <h3>${doctor.name}</h3>
-                            <span>Veterinarian</span>
-                            <div class="share">
-                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                            </div>
+                    <div class="flex flex-wrap formbold--mx-3">
+                      <div class="form-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        
+                        <div class="w-full sm:w-half formbold-px-3" style="flex: 1;">
+                          <div class="formbold-mb-5 w-full">
+                            <label for="date" class="formbold-form-label" style="font-weight: bold;">Date</label>
+                            <input type="date" name="date" id="date" class="formbold-form-input"
+                              style="width: 200px; color: black;" required>
+                          </div>
                         </div>
-                    `;
-                    doctorList.insertAdjacentHTML("beforeend", doctorBox);
-                });
-            } else {
-                doctorList.innerHTML = "<p>No doctors available at the selected time.</p>";
-            }
-
-            
-            const doctorsSection = document.getElementById("doctors");
-            doctorsSection.classList.remove("hidden");
-
+        
+                        
+                        <div class="w-full sm:w-half formbold-px-3" style="flex: 1;">
+                          <div class="formbold-mb-5">
+                            <label for="shift" class="formbold-form-label" style="font-weight: bold;">Shift</label>
+                            <select id="shift" class="formbold-form-select">
+                              <option value="default">Select a Shift</option>
+                              <option value="shift-a">Shift A (6:00AM - 2:00PM)</option>
+                              <option value="shift-b">Shift B (2:00PM - 10:00PM)</option>
+                              <option value="shift-c">Shift C (10:00PM - 6:00AM)</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+        
+                      <div class="w-full sm:w-half formbold-px-3">
+                        <div class="formbold-mb-5">
+                          <label for="location" class="formbold-form-label"> Location </label>
+                          <input id="location" placeholder="e.g., Remote or Physical Address" class="formbold-form-input" />
+                        </div>
+        
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                          <button type="button" id="offline-btn" class="formbold-btn">Offline Mode</button>
+                          <button type="button" id="online-btn" class="formbold-btn">Online Mode</button>
+                        </div>
+                        <br>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                          <button type="button" class="emergency-btn" onclick="window.location.href='Emergency.html'">
+                            Emergency Booking <i class="fa-solid fa-paw"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+  
+          <section class="doctors" id="doctors">
+            <h1 class="heading" style="text-align: center;">Available <span style="text-align: center;">Doctors</span></h1>
+            <br>
+            <h2 id="shift-heading" style="text-align: center;"></h2>
+            <br>
+            <div class="box-container" id="doctor-list">
+            </div>
+          </section>
+        </div>
+          <script>
+            const doctorsByShift = {
+              "shift-a": [
+                {
+                  name: "DOCTOR1",
+                  image: "images/doctor1.jpg",
+                  availability: [
+                    { date: "2025-01-01", time: "09:00" },
+                    { date: "2025-01-10", time: "10:00" },
+                  ],
+                },
+                {
+                  name: "DOCTOR2 ",
+                  image: "images/doctor2.jpg",
+                  availability: [
+                    { date: "2025-01-11", time: "09:00" },
+                    { date: "2025-01-20", time: "10:00" },
+                  ],
+                },
+              
+              {
+                  name: "DOCTOR3 ",
+                  image: "images/doctor3.jpg",
+                  availability: [
+                    { date: "2025-01-11", time: "09:00" },
+                    { date: "2025-01-20", time: "10:00" },
+                  ],
+                },
+              ],
+              "shift-b": [
+                {
+                  name: "DOCTOR1 ",
+                  image: "images/doctor1.jpg",
+                  availability: [
+                    { date: "2025-01-01", time: "14:00" },
+                    { date: "2025-01-10", time: "15:00" },
+                  ],
+                },
+                {
+                  name: "DOCTOR2 ",
+                  image: "images/doctor2.jpg",
+                  availability: [
+                    { date: "2025-01-11", time: "09:00" },
+                    { date: "2025-01-20", time: "10:00" },
+                  ],
+                },
+              
+              {
+                  name: "DOCTOR3 ",
+                  image: "images/doctor3.jpg",
+                  availability: [
+                    { date: "2025-01-11", time: "09:00" },
+                    { date: "2025-01-20", time: "10:00" },
+                  ],
+                },
+              ],
+              "shift-c": [
+                {
+                  name: "DOCTOR1 ",
+                  image: "images/doctor1.jpg",
+                  availability: [
+                    { date: "2025-01-01", time: "22:00" },
+                    { date: "2025-01-10", time: "23:00" },
+                  ],
+                },
+                {
+                  name: "DOCTOR2 ",
+                  image: "images/doctor2.jpg",
+                  availability: [
+                    { date: "2025-01-11", time: "09:00" },
+                    { date: "2025-01-20", time: "10:00" },
+                  ],
+                },
+              
+              {
+                  name: "DOCTOR3 ",
+                  image: "images/doctor3.jpg",
+                  availability: [
+                    { date: "2025-01-11", time: "09:00" },
+                    { date: "2025-01-20", time: "10:00" },
+                  ],
+                },
+              ],
+            };
+        
            
-            doctorsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-
-    </script>
-
-</body>
-
-</html>
+            function displayDoctors(shift) {
+              const doctorList = document.getElementById("doctor-list");
+              const shiftHeading = document.getElementById("shift-heading");
+        
+              
+              doctorList.innerHTML = "";
+        
+              
+              shiftHeading.textContent = ` ${shift.toUpperCase()} Doctors`;
+        
+              const doctors = doctorsByShift[shift];
+        
+              if (doctors && doctors.length > 0) {
+                doctors.forEach((doctor) => {
+                  const doctorBox = `
+                    <div class="box" style="border: 2px solid black; box-shadow: 2px 2px 2px 2px black;">
+                      <img src="${doctor.image}" alt="" style="border: 2px solid black;">
+                      <h3>${doctor.name}</h3>
+                      <span>Veterinarian</span>
+                      <div class="share">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                      </div>
+                    </div>
+                  `;
+                  doctorList.insertAdjacentHTML("beforeend", doctorBox);
+                });
+              } else {
+                doctorList.innerHTML = "<p>No doctors available for this shift.</p>";
+              }
+        
+             
+              const doctorsSection = document.getElementById("doctors");
+              doctorsSection.classList.add("visible");
+        
+              
+              doctorsSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+            }
+        
+            
+            document.getElementById("offline-btn").addEventListener("click", function () {
+              const selectedShift = document.getElementById("shift").value;
+              displayDoctors(selectedShift);
+            });
+          </script>
+        </body>
+        
+  </html>
+    
